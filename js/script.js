@@ -20,20 +20,23 @@ const personalMovieDB = {
 
 function rememberMyFilms() {
     for (let i = 0; i < 2; i++) {
-        const lastWatchedFilm = prompt('Last watched film?', '');
-        const userScoreOfLastWatchedFilm = prompt('Your score?', '8.1');
+        const lastWatchedFilm = prompt('Last watched film?', '').trim();
+        const userScoreOfLastWatchedFilm = prompt('Your score?', '8.1').trim();
 
         if (!lastWatchedFilm) {
             alert('You have to enter film!');
             i--;
+            continue;
         } else if (lastWatchedFilm.length > 50) {
             alert('Entered information must be have the length less than 50 symbols!');
             i--;
+            continue;
         }
 
         if (!userScoreOfLastWatchedFilm) {
             alert('You have to enter the score for film!');
             i--;
+            continue;
         }
 
         personalMovieDB.movies[lastWatchedFilm] = userScoreOfLastWatchedFilm;
